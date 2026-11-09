@@ -3795,6 +3795,7 @@ _LAZY_REGISTRY: dict[str, tuple[str, str]] = {
     # this module for TTSBackend). The class is resolved on first
     # attribute access via the LazyRegistry below.
     "supertonic3": ("engines.supertonic3", "Supertonic3Backend"),
+    "khanomtan": ("engines.khanomtan", "KhanomTanBackend"),
     # Issue #498: MOSS-TTS-v1.5 (8B) and dots.tts (2B) — both opt-in,
     # subprocess-isolated with their own venv because each pins a
     # transformers version that conflicts with the parent's >=5.3
@@ -3931,6 +3932,7 @@ _INSTALL_HINTS: dict[str, str] = {
     "sherpa-onnx":   "pip install sherpa-onnx  (universal ONNX runtime, WASM-ready)",
     "omnivoice-gguf":"Bundled — runs the C++ omnivoice-tts binary in bin/. An installed quant pair is reused; a missing one downloads from Serveurperso/OmniVoice-GGUF (pinned revision) on first generate. Offline hosts: see docs/engines/omnivoice-gguf.md.",
     "supertonic3":   "uv sync --extra supertonic  (CPU-only ONNX, 31 langs, ~400 MB model on first use; OpenRAIL-M model license)",
+    "khanomtan":     "Model Catalogue → KhanomTan (own venv with coqui-tts; Thai VITS, preset voices only; Apache-2.0)",
     "pockettts":     "uv sync --extra pockettts  (Kyutai, CPU-only, ~100 MB model on first use; MIT code + CC-BY-4.0 weights; HF-gated, review terms and set HF_TOKEN)",
     "moss-tts-v15":  "git clone OpenMOSS/MOSS-TTS + set OMNIVOICE_MOSS_TTS_V15_DIR  (own venv, transformers==5.0; 8B, ~16 GB weights; CUDA/ROCm/XPU/NPU/CPU, no MPS; Apache-2.0)",
     "dots-tts":      "git clone rednote-hilab/dots.tts + set OMNIVOICE_DOTS_TTS_DIR  (own venv, transformers==4.57; 2B, ~9 GB weights; CUDA/CPU, Linux/macOS only — on Windows use the audio.cpp dots.tts engine; Apache-2.0)",
@@ -3983,6 +3985,7 @@ _ENGINE_DOCS: dict[str, str] = {
     "gpt-sovits":           "docs/engines/gpt-sovits.md",
     "sherpa-onnx":          "docs/engines/sherpa-onnx.md",
     "supertonic3":          "docs/engines/supertonic3.md",
+    "khanomtan":            "docs/engines/khanomtan.md",
     "pockettts":            "docs/engines/pockettts.md",
     "audiocpp":             "docs/engines/audio-cpp.md",
     "audiocpp-dots":        "docs/engines/audio-cpp.md",

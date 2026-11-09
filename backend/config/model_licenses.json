@@ -4,6 +4,38 @@
   "scope": "Model-source disclosures joined to models.yaml. Using a model whose licence category is not commercial requires the user's local licence acceptance; ordinary installs and SDK auxiliary downloads are unchanged. The additive reviewed-install API fails closed on incomplete evidence. A local acknowledgement is not upstream assent or commercial permission.",
   "models": [
     {
+      "id": "wannaphong/khanomtan-tts-v1.1",
+      "license": "apache-2.0",
+      "commercial_use": false,
+      "review_status": "unreviewed",
+      "credit": "KhanomTan TTS v1.1 — Wannaphong Phatthiyaphaibun; trained with 🐸 Coqui-TTS on TSync 1 and 2 Thai corpora",
+      "source_url": "https://huggingface.co/wannaphong/khanomtan-tts-v1.1",
+      "evidence_url": "https://huggingface.co/wannaphong/khanomtan-tts-v1.1/blob/9bfdb75211eb645cd6bf75e69d483bd06e32f5c6/README.md",
+      "revision": "9bfdb75211eb645cd6bf75e69d483bd06e32f5c6",
+      "engines": [
+        "khanomtan"
+      ],
+      "configured_at": "backend/engines/khanomtan/constants.py",
+      "notes": "License identifier is the model card's metadata (apache-2.0), read at the pinned revision. The LICENSE file and the coqui-tts runtime (MPL-2.0) still need primary-source review before this counts as a permission grant. Preset speakers only; no cloning.",
+      "runtime_revision": "9bfdb75211eb645cd6bf75e69d483bd06e32f5c6",
+      "runtime_pin_scope": "engine",
+      "runtime_pin_source": "backend/engines/khanomtan/constants.py",
+      "component_closure": "incomplete",
+      "commercial_inference": "unknown",
+      "commercial_outputs": "unknown",
+      "documents": [],
+      "artifacts": [],
+      "required_components": [],
+      "upstream_access": "public",
+      "audit_observations": {
+        "open_questions": [
+          "LICENSE file at the pinned revision (only the card metadata was read)",
+          "Training-data provenance of the speakers (the card says non-CC0 voices were removed)",
+          "coqui-tts runtime license (MPL-2.0) and its attribution duties"
+        ]
+      }
+    },
+    {
       "id": "k2-fsa/OmniVoice",
       "license": "CC-BY-NC (version unspecified); Higgs Audio 2; Meta Llama 3",
       "commercial_use": false,

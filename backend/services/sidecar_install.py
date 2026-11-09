@@ -571,6 +571,31 @@ SPECS: dict[str, SidecarSpec] = {
         required_bytes=1 * _GIB,
         installed_probe=_in_app_env("supertonic"),
     ),
+    # KhanomTan (VITS, Thai): coqui-tts pins its own torch stack, so it gets an
+    # isolated venv. torch is the app's pinned pair, built for CUDA when present.
+    "khanomtan": SidecarSpec(
+        engine_id="khanomtan",
+        display_name="KhanomTan TTS",
+        repo_url="",
+        tarball_url="",
+        checkout_dirname="khanomtan",
+        env_var="OMNIVOICE_KHANOMTAN_DIR",
+        probe_module="TTS",
+        has_source=False,
+        venv_args=("--python", "3.11"),
+        # six: imported by coqui-tts's phonemizer but not declared by it.
+        # pythainlp: Thai word segmentation the checkpoint was trained with.
+        install_args=("coqui-tts==0.28.0", "huggingface_hub", "six", "pythainlp"),
+        torch_pins=("torch==2.8.0", "torchaudio==2.8.0"),
+        uses_cuda_index=True,
+        docs_path="docs/engines/khanomtan.md",
+        # ~5 GB venv (torch + coqui-tts) + ~0.7 GB checkpoint.
+        required_bytes=7 * _GIB,
+        weights_bytes=1 * _GIB,
+        dependency_bytes=5 * _GIB,
+        disk_confidence="estimated",
+        installed_probe=_in_app_env("TTS"),
+    ),
     "pockettts": SidecarSpec(
         engine_id="pockettts",
         display_name="PocketTTS",
